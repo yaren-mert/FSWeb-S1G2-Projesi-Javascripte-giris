@@ -18,7 +18,18 @@ Aşağıdakileri yapın:
    2. Eğer yaş 18'den büyük ise Console'da True, değilse False değeri yazdırın.
 
    İPUCU: fonksiyon oluşturmaya gerek yok
-*/
+*/let sürücüYaşı = 25;
+if(sürücüYaşı>18) {
+  console.log(true)
+} else{
+  console.log(false)
+}
+let sürücüYaşı1 = 17;
+if(sürücüYaşı1>18){
+  console.log(true)
+  }else{
+    console.log(false)
+  }
 
 
 
@@ -33,6 +44,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birinciDeger = 10;
+let ikinciDeger = 8;
+if (birinciDeger > ikinciDeger) {
+  birinciDeger = 6;
+  console.log(birinciDeger) ;
+}
 
 
 
@@ -48,7 +65,9 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
+const stringSayı = '1999' ;
+const numberSayı = Number(stringSayı);
+console.log(numberSayı) ;
 
 
 
@@ -60,10 +79,12 @@ Aşağıdakileri yapın:
    2. Aşağıdaki çarpma fonksiyonunu çağırarak, 2 sayıyı bu fonksiyona iletin
    3. a ve b'yi çarpıp, sonucu dönün
 */
+function carpma(a,b){
+  return a * b;
+ }
+ console.log(carpma(7,5))
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
-}
+
 
 
 
@@ -77,10 +98,10 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(age) {
+  return age * 7;
 }
-
+console.log(kopeginYasi(5));
 
 
 /* Görev 3 */
@@ -105,8 +126,42 @@ OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı ye
 */
 
 function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+  if((oyuncu==="Taş")|| (oyuncu === "Kağıt")||(oyuncu==="Makas")&&(bilgisayar==="Taş")|| (bilgisayar === "Kağıt")||(bilgisayar==="Makas")){
+      if(oyuncu===bilgisayar){
+        let sonuc = "Beraberlik";
+        return sonuc;
+      }
+      else if((oyuncu==="Taş"&&bilgisayar==="Makas")||(oyuncu==="Kağıt"&&bilgisayar==="Taş")||(oyuncu==="Makas"&&bilgisayar==="Kağıt")){
+        let sonuc = "Kazandın!";
+        return sonuc;
+      }
+      else{
+        let sonuc = "Kaybettin!"
+        return sonuc;
+      }
+    }
+  else{
+    console.log("Yazım kurallarına uymadığı için teste devam edemezssin..")
+  }
 }
+let bilgisayar = bilgisayarSecimi()
+function bilgisayarSecimi(){
+  let bilgisayarRandom = Math.ceil(Math.random()*3)
+  let bilgisayarınDurumu;
+  if(bilgisayarRandom===1){
+    bilgisayarınDurumu = "Taş";
+  }
+  else if(bilgisayarRandom===2){
+    bilgisayarınDurumu = "Makas"
+  }
+  else{
+    bilgisayarınDurumu = "Kağıt"
+  }
+  return bilgisayarınDurumu;
+}
+console.clear()
+let oyuncu = "Taş"
+console.log(oyun(oyuncu,bilgisayar))
 
 
 
@@ -120,11 +175,11 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(m) {
+  let milDonusturucu = m * 0.621371;
+  return milDonusturucu;
 }
-
-
+console.log(milDonusturucu(10));
 
 //Görev 4b - Santimetreden Feet
 /*
@@ -134,9 +189,11 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(len) {
+  console.log(len / 30.48);
+  return len / 30.48;
 }
+feetDonusturucu(10);
 
 
 
@@ -152,9 +209,17 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 3. Bu fonksiyonun dışında bir yerde, maymun sayısının her seferinde 1 azaldığı ve maymun sayısı 1 olana kadar devem eden bir döngü oluşturun. 
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
+let maymunSayi = 10;
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(maymunSayi) {
+  function cocukSarkisi(maymunSayi) {
+    return `${maymunSayi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`;
+  }
+  
+  while (maymunSayi > 1) {
+    console.log(cocukSarkisi(maymunSayi));
+    maymunSayi--;
+  } 
 }
 
 
@@ -173,9 +238,22 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(grade) {
+  if (grade >= 90) {
+    return 'A aldın';
+  } else if (grade >= 80) {
+    return 'B aldın';
+  } else if (grade >= 70) {
+    return 'C aldın';
+  } else if (grade >= 60) {
+    return 'D aldın';
+  } else {
+    return 'F aldın';
+  }
 }
+
+console.log(notHesapla(54));
+
 
 
 
@@ -191,9 +269,19 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 */
 
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(str) {
+  let data = ['a', 'e', 'ı', 'i', 'o', 'ö', 'u', 'ü'];
+  let arr = str.toLowerCase().split('');
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (data.includes(arr[i])) {
+      counter++;
+    }
+  }
+  return counter;
 }
+
+sesliHarfSayaci('Isparta');
 
 
 
